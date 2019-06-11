@@ -1,8 +1,8 @@
 var webpack = require('webpack'); // eslint-disable-line
 
 var env = process.env.NODE_ENV;   // eslint-disable-line
-var filename = 'ethjs-contract';      // eslint-disable-line
-var library = 'EthContract';          // eslint-disable-line
+var filename = 'puffsjs-contract';      // eslint-disable-line
+var library = 'PuffsContract';          // eslint-disable-line
 var config = {                    // eslint-disable-line
   module: {
     loaders: [
