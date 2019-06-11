@@ -3,11 +3,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("EthContract", [], factory);
+		define("PuffsContract", [], factory);
 	else if(typeof exports === 'object')
-		exports["EthContract"] = factory();
+		exports["PuffsContract"] = factory();
 	else
-		root["EthContract"] = factory();
+		root["PuffsContract"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -2868,7 +2868,7 @@ function Result() {}
 
 function encodeParams(types, values) {
   if (types.length !== values.length) {
-    throw new Error('[ethjs-abi] while encoding params, types/values mismatch, Your contract requires ' + types.length + ' types (arguments), and you passed in ' + values.length);
+    throw new Error('[puffsjs-abi] while encoding params, types/values mismatch, Your contract requires ' + types.length + ' types (arguments), and you passed in ' + values.length);
   }
 
   var parts = [];
@@ -3073,7 +3073,7 @@ function constructFilter(filterName, query) {
                 }
               });
             } catch (decodingErrorMesage) {
-              decodingError = new Error('[ethjs-filter] while decoding filter change event data from RPC \'' + JSON.stringify(decodedChangeResults) + '\': ' + decodingErrorMesage);
+              decodingError = new Error('[puffsjs-filter] while decoding filter change event data from RPC \'' + JSON.stringify(decodedChangeResults) + '\': ' + decodingErrorMesage);
             }
           }
 
@@ -3187,21 +3187,21 @@ function constructFilter(filterName, query) {
 }
 
 /**
- * EthFilter constructor, intakes a query, helps manage filter event polling
+ * PuffsFilter constructor, intakes a query, helps manage filter event polling
  *
- * @method EthFilter
- * @param {Object} query the `ethjs-query` or `eth-query` object
- * @returns {Object} output an EthFilter instance
+ * @method PuffsFilter
+ * @param {Object} query the `puffsjs-query` or `puffs-query` object
+ * @returns {Object} output an PuffsFilter instance
  * @throws error if new is not used
  */
 
-function EthFilter(query) {
+function PuffsFilter(query) {
   var self = this;
-  if (!(self instanceof EthFilter)) {
-    throw new Error('the EthFilter object must be instantiated with `new` flag.. (e.g. `const filters = new EthFilter(query);`)');
+  if (!(self instanceof PuffsFilter)) {
+    throw new Error('the PuffsFilter object must be instantiated with `new` flag.. (e.g. `const filters = new PuffsFilter(query);`)');
   }
   if (typeof query !== 'object') {
-    throw new Error('the EthFilter object must be instantiated with an EthQuery instance (e.g. `const filters = new EthFilter(new EthQuery(provider));`). See github.com/ethjs/ethjs-query for more details..');
+    throw new Error('the PuffsFilter object must be instantiated with an PuffsQuery instance (e.g. `const filters = new PuffsFilter(new PuffsQuery(provider));`). See github.com/puffscoin/puffsjs-query for more details..');
   }
 
   self.Filter = constructFilter('Filter', query);
@@ -3209,8 +3209,8 @@ function EthFilter(query) {
   self.PendingTransactionFilter = constructFilter('PendingTransactionFilter', query);
 }
 
-// export EthFilter
-module.exports = EthFilter;
+// export PuffsFilter
+module.exports = PuffsFilter;
 
 /***/ },
 /* 31 */
@@ -3231,7 +3231,7 @@ function padToEven(value) {
   var a = value; // eslint-disable-line
 
   if (typeof a !== 'string') {
-    throw new Error('[ethjs-util] while padding to even, value must be string, is currently ' + typeof a + ', while padToEven.');
+    throw new Error('[puffsjs-util] while padding to even, value must be string, is currently ' + typeof a + ', while padToEven.');
   }
 
   if (a.length % 2) {
@@ -3270,7 +3270,7 @@ function intToBuffer(i) {
  */
 function getBinarySize(str) {
   if (typeof str !== 'string') {
-    throw new Error('[ethjs-util] while getting binary size, method getBinarySize requires input \'str\' to be type String, got \'' + typeof str + '\'.');
+    throw new Error('[puffsjs-util] while getting binary size, method getBinarySize requires input \'str\' to be type String, got \'' + typeof str + '\'.');
   }
 
   return Buffer.byteLength(str, 'utf8');
@@ -3287,10 +3287,10 @@ function getBinarySize(str) {
  */
 function arrayContainsArray(superset, subset, some) {
   if (Array.isArray(superset) !== true) {
-    throw new Error('[ethjs-util] method arrayContainsArray requires input \'superset\' to be an array got type \'' + typeof superset + '\'');
+    throw new Error('[puffsjs-util] method arrayContainsArray requires input \'superset\' to be an array got type \'' + typeof superset + '\'');
   }
   if (Array.isArray(subset) !== true) {
-    throw new Error('[ethjs-util] method arrayContainsArray requires input \'subset\' to be an array got type \'' + typeof subset + '\'');
+    throw new Error('[puffsjs-util] method arrayContainsArray requires input \'subset\' to be an array got type \'' + typeof subset + '\'');
   }
 
   return subset[Boolean(some) && 'some' || 'every'](function (value) {
@@ -3380,10 +3380,10 @@ function fromAscii(stringValue) {
  */
 function getKeys(params, key, allowEmpty) {
   if (!Array.isArray(params)) {
-    throw new Error('[ethjs-util] method getKeys expecting type Array as \'params\' input, got \'' + typeof params + '\'');
+    throw new Error('[puffsjs-util] method getKeys expecting type Array as \'params\' input, got \'' + typeof params + '\'');
   }
   if (typeof key !== 'string') {
-    throw new Error('[ethjs-util] method getKeys expecting type String for input \'key\' got \'' + typeof key + '\'.');
+    throw new Error('[puffsjs-util] method getKeys expecting type String for input \'key\' got \'' + typeof key + '\'.');
   }
 
   var result = []; // eslint-disable-line
@@ -7292,7 +7292,7 @@ function _interopRequireDefault(obj) {
 }
 
 var abi = __webpack_require__(29); // eslint-disable-line
-var EthFilter = __webpack_require__(30); // eslint-disable-line
+var PuffsFilter = __webpack_require__(30); // eslint-disable-line
 var getKeys = __webpack_require__(31).getKeys; // eslint-disable-line
 var keccak256 = __webpack_require__(16).keccak_256; // eslint-disable-line
 var hasTransactionObject = __webpack_require__(27);
