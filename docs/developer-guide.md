@@ -84,7 +84,7 @@ After build staging it is the `lib` folder which actually gets published to NPM.
 
 ## NPM/Node Version Requirements
 
-`ethjs` requires you have:
+`puffsjs` requires you have:
   - `nodejs` -v 6.5.0+
   - `npm` -v 3.0+
 
@@ -92,7 +92,7 @@ This is a requirement to run, test, lint and build this module.
 
 ## Webpack
 
-`ethjs` uses webpack across all its browser focused repos. Webpack is used to package down project files into distribution builds for the browser. You can see the builds it produces by going to the [dist](dist) folder.
+`puffsjs` uses webpack across all its browser focused repos. Webpack is used to package down project files into distribution builds for the browser. You can see the builds it produces by going to the [dist](dist) folder.
 
 Read more about webpack here:
 https://github.com/webpack/docs
@@ -103,11 +103,11 @@ All relevant changes are notated in the `CHANGELOG.md` file, moniter this file f
 
 ## Travis-ci and Coveralls Practice
 
-Across all `ethjs-` repos, we enforce mandatory travis-ci and coveralls testing. We never `commit to master`. As a general policy, Coveralls.io results must always be above 95% for any `ethjs-` PR or commit. We want to ensure complete coverage across the board.
+Across all `puffsjs-` repos, we enforce mandatory travis-ci and coveralls testing. We never `commit to master`. As a general policy, Coveralls.io results must always be above 95% for any `ethjs-` PR or commit. We want to ensure complete coverage across the board.
 
 ## Contributing
 
-Please help better the ecosystem by submitting issues and pull requests. We need all the help we can get to build the absolute best linting standards and utilities. We follow the AirBNB linting standard. Please read more about contributing to `ethjs-contract` in the `.github/CONTRIBUTING.md`.
+Please help better the ecosystem by submitting issues and pull requests. We need all the help we can get to build the absolute best linting standards and utilities. We follow the AirBNB linting standard. Please read more about contributing to `puffsjs-contract` in the `.github/CONTRIBUTING.md`.
 
 ## Licence
 
