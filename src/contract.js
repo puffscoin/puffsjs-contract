@@ -1,6 +1,6 @@
-const abi = require('ethjs-abi'); // eslint-disable-line
-const EthFilter = require('ethjs-filter'); // eslint-disable-line
-const getKeys = require('ethjs-util').getKeys; // eslint-disable-line
+const abi = require('puffsjs-abi'); // eslint-disable-line
+const PuffsFilter = require('puffsjs-filter'); // eslint-disable-line
+const getKeys = require('puffsjs-util').getKeys; // eslint-disable-line
 const keccak256 = require('js-sha3').keccak_256; // eslint-disable-line
 const hasTransactionObject = require('./has-tx-object');
 const promiseToCallback = require('promise-to-callback');
@@ -14,7 +14,7 @@ function Contract(opts = {}) {
   self.address = opts.address || '0x';
   self.bytecode = opts.contractBytecode || '0x';
   self.defaultTxObject = opts.contractDefaultTxObject || {};
-  self.filters = new EthFilter(self.query);
+  self.filters = new PuffsFilter(self.query);
 
   getCallableMethodsFromABI(self.abi).forEach((methodObject) => {
     if (methodObject.type === 'function') {
@@ -88,7 +88,7 @@ function Contract(opts = {}) {
         const decodedMethodResult = abi.decodeMethod(methodObject, queryResult);
         return decodedMethodResult;
       } catch (decodeFormattingError) {
-        const decodingError = new Error(`[ethjs-contract] while formatting incoming raw call data ${JSON.stringify(queryResult)} ${decodeFormattingError}`);
+        const decodingError = new Error(`[puffsjs-contract] while formatting incoming raw call data ${JSON.stringify(queryResult)} ${decodeFormattingError}`);
         throw decodingError;
       }
     }
