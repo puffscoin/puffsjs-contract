@@ -1,17 +1,17 @@
 # Developer Guide
 
-All information regarding contributing to and progressing `ethjs-contract` module can be found in this document.
+All information regarding contributing to and progressing `puffsjs-contract` module can be found in this document.
 
 ## Install
 
 ```
-npm install --save ethjs-contract
+npm install --save puffsjs-contract
 ```
 
 ## Install from Source
 
 ```
-git clone http://github.com/ethjs/ethjs-contract
+git clone http://github.com/puffscoin/puffsjs-contract
 npm install
 ```
 
@@ -61,7 +61,7 @@ The build staging for this module is as follows:
 All module source code is found in the `src` directory. All module helper scripts can be found in the `scripts` folder. These will not need to be touched, and are purely configuration for this repository.
 
 ```
-./ethjs-contract
+./puffsjs-contract
   ./.github
   ./dist
   ./lib
@@ -78,7 +78,7 @@ Note, the `./lib` dir is generated from the babel build staging. `./coverage` is
 
 ## NPM Practice
 
-Across all `ethjs-` repos, we enforce version hardening (i.e. "0.0.3" not "^0.0.3"). We want to reduce potential hazardous install changes from dependancies as much as possible to ensure package preformace, testing, security and design. Please make sure all your commits and PR's are version hardend if you are installing or removing new packages.
+Across all `puffsjs-` repos, we enforce version hardening (i.e. "0.0.3" not "^0.0.3"). We want to reduce potential hazardous install changes from dependancies as much as possible to ensure package preformace, testing, security and design. Please make sure all your commits and PR's are version hardend if you are installing or removing new packages.
 
 After build staging it is the `lib` folder which actually gets published to NPM. This allows for easy inclusion into other modules which may not use babel transpiling or which may not support es2015+.
 
