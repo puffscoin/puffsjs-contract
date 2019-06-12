@@ -85,7 +85,7 @@ const HttpProvider = require('puffsjs-provider-http');
 const Puffs = require('puffsjs-query');
 const PuffsContract = require('puffsjs-contract');
 const puffs = new Puffs(new HttpProvider('http://localhost:11363'));
-const contract = new EthContract(puffs);
+const contract = new PuffsContract(puffs);
 
 // the abi
 const SimpleStoreABI = JSON
@@ -114,7 +114,7 @@ puffs.accounts().then((accounts) => {
 
 [index.js:puffsjs-contract](../../../blob/master/src/index.js "Source code on GitHub")
 
-The contract factory has two methods, 'at' and 'new' which can be used to create the contract instane. the `at` method is used to create a `Contract` instance for a contract that has already been deployed to the Ethereum blockchain (testnet, livenet, local or otherwise). The `new` method is used to deploy the contract to the current chain.
+The contract factory has two methods, 'at' and 'new' which can be used to create the contract instane. the `at` method is used to create a `Contract` instance for a contract that has already been deployed to the Puffscoin blockchain (testnet, livenet, local or otherwise). The `new` method is used to deploy the contract to the current chain.
 
 **Parameters**
 
