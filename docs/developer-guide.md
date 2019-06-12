@@ -103,7 +103,7 @@ All relevant changes are notated in the `CHANGELOG.md` file, moniter this file f
 
 ## Travis-ci and Coveralls Practice
 
-Across all `puffsjs-` repos, we enforce mandatory travis-ci and coveralls testing. We never `commit to master`. As a general policy, Coveralls.io results must always be above 95% for any `ethjs-` PR or commit. We want to ensure complete coverage across the board.
+Across all `puffsjs-` repos, we enforce mandatory travis-ci and coveralls testing. We never `commit to master`. As a general policy, Coveralls.io results must always be above 95% for any `puffsjs-` PR or commit. We want to ensure complete coverage across the board.
 
 ## Contributing
 
