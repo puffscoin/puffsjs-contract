@@ -131,7 +131,7 @@ describe('PuffsContract', () => {
       };
 
       const puffs = new Puffs(new FakeProvider());
-      const { simpleStore } = await deploySimpleStore({ eth });
+      const { simpleStore } = await deploySimpleStore({ puffs });
       const { watchPromise } = await simpleStorePerformSetAndWatchOnce({ simpleStore });
 
       try {
@@ -428,8 +428,8 @@ describe('PuffsContract', () => {
   });
 });
 
-async function deploySimpleStore({ eth, defaultTxObject, newOpts = {}, contractBytecode }) {
-  const contract = new PuffsContract(eth);
+async function deploySimpleStore({ puffs, defaultTxObject, newOpts = {}, contractBytecode }) {
+  const contract = new PuffsContract(puffs);
   assert.equal(typeof contract, 'function');
 
   const accounts = await puffs.accounts();
@@ -502,7 +502,7 @@ async function simpleStorePerformSetAndGet({ puffs, simpleStore, setNumberValue 
   const setTxHash = await simpleStore.set(setNumberValue, setOpts);
   assert.equal(typeof setTxHash, 'string');
 
-  const setTx = await eth.getTransactionByHash(setTxHash);
+  const setTx = await puffs.getTransactionByHash(setTxHash);
   assert.ok(setTx);
   assert.equal(typeof setTx, 'object');
   const setTxReceipt = await puffs.getTransactionReceipt(setTxHash);
