@@ -1,11 +1,11 @@
-const abi = require('ethjs-abi'); // eslint-disable-line
+const abi = require('puffsjs-abi'); // eslint-disable-line
 const keccak256 = require('js-sha3').keccak_256; // eslint-disable-line
 const PuffsFilter = require('puffsjs-filter'); // eslint-disable-line
 const getKeys = require('puffsjs-util').getKeys; // eslint-disable-line
 const Contract = require('./contract');
 const hasTransactionObject = require('./has-tx-object');
 
-module.exports = EthContract;
+module.exports = PuffsContract;
 
 function PuffsContract(query) {
   return function contractFactory(contractABI, contractBytecode, contractDefaultTxObject) {
